@@ -10,5 +10,7 @@ int main()
         cout << "Hello World! \n";
     }
 
+    cout << "Lab finished! \n";
+
     return 0;
 }
