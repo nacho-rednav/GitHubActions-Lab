@@ -1,0 +1,27 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build process
+      run: make
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: ./artifacts
+
+    - name: Clean
+      run: make clean
