@@ -2,26 +2,25 @@ name: Makefile CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Build process
-      run: make
+      - name: Build process
+        run: make
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: my-artifact
-        path: ./artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: ./artifacts/artifact.exe
 
-    - name: Clean
-      run: make clean
+      - name: Clean
+        run: make clean
